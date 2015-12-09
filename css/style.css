@@ -1,0 +1,77 @@
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 300;
+      src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v15/0eC6fl06luXEYWpBSJvXCIX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  
+    }
+
+
+
+ body {
+
+                margin: 0;
+                overflow: visible;
+                padding-left: 0;
+                margin-left: 0;
+                background-color: black;
+     
+        }
+
+          #topText {
+
+        
+        margin-left: 20px;
+        margin-top: 20px;
+         z-index: 11;
+
+        
+        
+      
+      
+
+      }
+
+
+      .matrix {
+
+
+      
+        opacity: 0.0;
+        position: absolute;
+        color: white;
+        font-size: 9px;
+        line-height: 2.3em;
+        font-family: Roboto;
+        font-weight: regular;
+        letter-spacing: 0.3em;
+
+      }
+
+     #container   {
+
+           
+                padding-left: 0;
+                position: absolute;
+
+
+        }
+
+  .overlay {
+              -webkit-box-align: center;
+              -webkit-box-pack: center;
+              -webkit-transition: 0.25s opacity;
+              background: -webkit-radial-gradient(rgba(127, 127, 127, 0.5),
+                                                  rgba(127, 127, 127, 0.5) 1%,
+                                                  rgba(0, 0, 0, 0.7));
+              bottom: 0;
+              display: -webkit-box;
+              left: 0;
+              padding: 20px;
+              padding-bottom: 130px;
+              position: fixed;
+              right: 0;
+              top: 0;
+              z-index: 10;
+    }
