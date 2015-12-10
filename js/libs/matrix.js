@@ -2,7 +2,7 @@
 var Matrix = function(el) {
 
 		this.el = el[0];
-		this.el.style.opacity = "0.85";
+		this.el.style.opacity = "0.5";
 		var text = this.el.innerHTML;
 		this.numLetter = text.length;
 		this.originalLetterList = text.split('');

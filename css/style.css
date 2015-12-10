@@ -9,10 +9,12 @@
 
 
 
+
+
  body {
 
                 margin: 0;
-                overflow: visible;
+                overflow: hidden;
                 padding-left: 0;
                 margin-left: 0;
                 background-color: black;
@@ -25,6 +27,7 @@
         margin-left: 20px;
         margin-top: 20px;
          z-index: 11;
+         position: absolute;
 
         
         

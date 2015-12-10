@@ -8,9 +8,8 @@ var myFragmentShader =
 
         "void main() {"+
 
-
-        "vec3 color = vec3( ((vUv) * (0.3+ u_mouse.x/100.0 - noise )) , 1.0);"+
-        "gl_FragColor = vec4( color.r, color.r, color.r , 1.0);"+
+        "vec3 color = vec3( ((vUv) * (0.3 + u_mouse.x/100.0 - noise )) , 1.0);"+
+        "gl_FragColor = vec4( color.r, color.r, color.r , 1.0  );"+
 
  "}";
 

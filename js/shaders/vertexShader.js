@@ -19,7 +19,9 @@
           "varying float noise;"+
           "uniform float u_time;"+
           "uniform vec2 u_mouse;"+
+          "uniform vec2 v_mouse;"+
           "vec3 mod289(vec3 x) {"+
+
 
 
 
@@ -50,6 +52,17 @@
 
           "vec3 fade(vec3 t) {"+
           "return t*t*t*(t*(t*6.0-15.0)+10.0);"+
+          "}"+
+
+          "float vertexHeight(float x, float y, float x0, float y0) {"+
+
+               
+                    "return sqrt(  (x+=x0) * x + (y+=y0) * y );"+
+              
+                  
+
+                  
+
           "}"+
 
 
@@ -127,16 +140,19 @@
           "vec2 n_yz = mix(n_z.xy, n_z.zw, fade_xyz.y);"+
 
           "float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x );"+
+         
             "return 2.2 * n_xyz;"+
           "}"+
 
-
+      
 
           "float customTurbulence( vec3 p) {"+
 
           "float t = -0.5;"+
+         
           "float power = 1.0;"+
-          "t += abs( pnoise( fade(vec3( power * normal )) + p*5.0, vec3( 10.0, 10.0, 10.0 )) / power);"+
+          
+          "t += abs( pnoise( fade(vec3( power * normal  )) + p*5.0, vec3( 10.0, 10.0, 10.0 )) / power);"+
           "return t;"+
 
           "}"+
@@ -145,9 +161,11 @@
           "void main() {"+
 
           "vUv = uv;"+
+           "float vd = vertexHeight(v_mouse.x, v_mouse.y, uv.x, uv.y );"+
           "noise = 10.0 * -0.10 * customTurbulence( 5.0 * normal + u_time );"+
-          "float b = 5.0 * pnoise( 0.05 * position + vec3(2.0 * u_time), vec3( 100.0 ) );"+
-          "float displacement = (-10.0 - u_mouse.x )* noise + b * u_mouse.x/4.5 ;"+
+          "float b = 5.0 * pnoise( 0.05  * position  + vec3(2.0* vd/50.0  * u_time ), vec3( 100.0 ) );"+
+
+          "float displacement = (-10.0 - u_mouse.x + vd/100.0 )* noise  + b * u_mouse.x/4.5  ;"+
           "vec3 newPos = position + normal * displacement;"+
           "gl_Position = projectionMatrix * modelViewMatrix * vec4( newPos, 1.0);"+
   "}";
